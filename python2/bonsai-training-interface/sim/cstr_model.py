@@ -40,8 +40,10 @@ class CSTRModel:
         def model(z, t, u):
             x = z[0]
             y = z[1]
+            #fmt:off
             dxdt = (self.F/self.V * (self.Cafin - x)) - (self.k0 * exp(-self.E/(self.R*y))*x)
             dydt =  (self.F/self.V *(self.Tf-y)) - ((self.ΔH/self.phoCp)*(self.k0 * exp(-self.E/(self.R*y))*x)) - ((self.UA /(self.phoCp*self.V)) *(y - self.Tc + u))
+            #fmt:off
 
             dzdt = [dxdt,dydt]
             return dzdt
@@ -79,8 +81,10 @@ class CSTRModel:
         def model(z, t, u):
             x = z[0]
             y = z[1]
+            #fmt:off
             dxdt = (self.F/self.V * (self.Cafin - x)) - (self.k0 * exp(-self.E/(self.R*y))*x)
             dydt =  (self.F/self.V *(self.Tf-y)) - ((self.ΔH/self.phoCp)*(self.k0 * exp(-self.E/(self.R*y))*x)) - ((self.UA /(self.phoCp*self.V)) *(y - self.Tc + u))
+            #fmt:off
 
             dzdt = [dxdt,dydt]
             return dzdt
